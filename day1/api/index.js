@@ -12,14 +12,22 @@ function printData(data) {
   console.log(users);
 
 
+  let maincode=document.getElementById("maincode");
+ let user=document.createElement("div");
+ user.setAttribute("class", "user");
+ maincode
+
   //USing filter method for id;
  let tempdata = users.filter((ele) => {
-  if(ele.id<25){
-  console.log("firstname: " + ele.firstName);
-  return("firstname: " + ele.firstName);
+  if(ele.age<25){
+  console.log(ele.firstName);
+  return ele.firstName;
   }
  })
- console.log(tempdata);
+
+ console.log(tempdata.firstName);
+  
+ 
 
  
 
