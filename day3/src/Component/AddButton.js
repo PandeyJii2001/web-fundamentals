@@ -48,7 +48,7 @@ function AddButton(props) {
         setWeight(val);
     }
 
-    let Id=0;
+    let Id = 0;
     return (
         <div className='formformate'>
             <Form>
@@ -101,7 +101,7 @@ function AddButton(props) {
                                 bloodGroup: Bloodgroup,
                                 age: Age,
                                 weight: Weight,
-                                 id: Id+1
+                                id: Id + 1
                             }
                             if (userdetails.firstName === '' || userdetails.phone === '' ||
                                 userdetails.email === '' || userdetails.age === '' ||

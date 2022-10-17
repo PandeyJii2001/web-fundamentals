@@ -1,15 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
 import axois from 'axios';
-
-import AddInTodo from './ComponentTodo/AddInTodo';
-import DeleteTodoList from './ComponentTodo/DeleteTodoList';
-//import EditButton from './Component/EditButton';
-
-import ProjectCard from './ComponentTodo/ProjectCard';
-import { Button } from 'antd';
 import axios from 'axios';
 
+import AddInTodo from './ComponentTodo/AddInTodo';
+import DeleteTodoList from './ComponentTodo/DeleteTodoList'
+import ProjectCard from './ComponentTodo/ProjectCard';
+import UpdateTodoList from './ComponentTodo/UpdateTodoList';
+
+import { Button } from 'antd';
 
 
 
@@ -20,7 +19,7 @@ function TodoApi() {
   const [counter, setCounter] = useState(0);
 
   function ShowTodoList() {
-   
+
     fetch("/todo")
       .then((response) => response.json())
       .then((json) => {
@@ -31,7 +30,7 @@ function TodoApi() {
   }
 
   useEffect(() => {
-    
+
     ShowTodoList();
   }, []);
 
@@ -48,17 +47,17 @@ function TodoApi() {
     // let newCounter = counter + 1;
     // setCounter(newCounter);
     console.log(newproject);//
-   
 
-     axois.post("/todo", newproject)
-       .then((json) => {
+
+    axois.post("/todo", newproject)
+      .then((json) => {
         //axios.get('/todo').then((data) =>{console.log(data.json())});
         ShowTodoList();
-         })
-         .catch((error) =>{
-          console.log("this is error " + error)
-         });
-    
+      })
+      .catch((error) => {
+        console.log("this is error " + error)
+      });
+
   }
 
   const deleteproject = (key) => {
@@ -70,21 +69,21 @@ function TodoApi() {
     // //it's written just because of output the all users after deleting;
     // let newCounter = counter + 1;
     // setCounter(newCounter);
-    
-      console.log("this is key " + key);
-    axios.delete(`/todo/${key}`)
-    .then((json) => {
 
-      ShowTodoList();
-       })
-       .catch((error) =>{
+    console.log("this is key " + key);
+    axios.delete(`/todo/${key}`)
+      .then((json) => {
+
+        ShowTodoList();
+      })
+      .catch((error) => {
         console.log("this is error " + error)
-       });
+      });
 
     //Showusers ();
   }
 
-  const edituser = (updateuser, key) => {
+  const editproject = (updatetodo, key) => {
     // let userList = Displayusers;
     // userList[key] = updateuser;
     // setDisplayUsers(userList);
@@ -93,17 +92,17 @@ function TodoApi() {
     // let newCounter = counter + 1;
     // setCounter(newCounter);
 
-     
-    axios.put(`/todo/${key}`, updateuser)
-        .then((json) => {
-          
-          ShowTodoList ();
-           })
-           .catch((error) =>{
-            console.log("this is error " + error)
-           });
 
-         //Showusers();  
+    axios.put(`/todo/${key}`, updatetodo)
+      .then((json) => {
+
+        ShowTodoList();
+      })
+      .catch((error) => {
+        console.log("this is error " + error)
+      });
+
+
   }
 
   const hideit = () => {
@@ -115,7 +114,7 @@ function TodoApi() {
       <>
         <AddInTodo Addproject={addproject}></AddInTodo>
         <div className='hideit'>
-        <Button className='hideitbtn' onClick={hideit}>Cancel</Button>
+          <Button className='hideitbtn' onClick={hideit}>Cancel</Button>
         </div>
       </>)
   }
@@ -131,24 +130,24 @@ function TodoApi() {
       </div>
       <div className='alluser'>
         <div className='userallinfo'>
-            <div className='userinfocolor' >Project Title</div>
-            <div className='userinfocolor'>Project Status</div>
-            <div className='userinfocolor'>Project Owner</div>
-            <div className='userinfocolor'>Due Date</div>
-            <div className='userinfosmall' style={{color : "blue"}}>Operations</div>
+          <div className='userinfocolor' >Project Title</div>
+          <div className='userinfocolor'>Project Status</div>
+          <div className='userinfocolor'>Project Owner</div>
+          <div className='userinfocolor'>Due Date</div>
+          <div className='userinfosmall' style={{ color: "blue" }}>Operations</div>
         </div>
         {Displayusers.map((PROJECT, index) => {
-        
-        return (
-          <div className='userallinfo'>
-            <ProjectCard key={index}  project={PROJECT} />
-            <div className='userinfosmall'>
-            <DeleteTodoList  project={PROJECT} Deleteproject={deleteproject}></DeleteTodoList>
-            {/* <EditButton  edituser={edituser} user={USER}></EditButton> */}
-            </div>
-          </div>)
 
-      })}
+          return (
+            <div className='userallinfo'>
+              <ProjectCard key={index} project={PROJECT} />
+              <div className='userinfosmall'>
+                <DeleteTodoList project={PROJECT} Deleteproject={deleteproject}></DeleteTodoList>
+                <UpdateTodoList Editproject={editproject} project={PROJECT}></UpdateTodoList>
+              </div>
+            </div>)
+
+        })}
       </div>
 
     </div>

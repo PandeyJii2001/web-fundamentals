@@ -1,18 +1,18 @@
 import React from 'react';
 
 
-function ProjectCard (props) {
+function ProjectCard(props) {
 
-        return (<>
+    return (<>
 
-            <div className='userinfo'>{props.project.projectTitle}</div>
-            <div className='userinfo'>{props.project.projectStatus}</div>
-            <div className='userinfo'>{props.project.projectOwner}</div>
-            <div className='userinfodueDate'>{props.project.dueDate}</div>
-           
-        </>
-        )
-  
+        <div className='userinfo'>{props.project.projectTitle}</div>
+        <div className='userinfo'>{props.project.projectStatus}</div>
+        <div className='userinfo'>{props.project.projectOwner}</div>
+        <div className='userinfodueDate'>{props.project.dueDate}</div>
+
+    </>
+    )
+
 }
 
 export default ProjectCard;

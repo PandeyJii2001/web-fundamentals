@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button } from 'antd';
 
-function DelButton (props) {
+function DelButton(props) {
 
-        return (
-            <div>
-                <Button className='useerinfo1btn useerinfo1btndelete'
+    return (
+        <div>
+            <Button className='useerinfo1btn useerinfo1btndelete'
                 onClick={() => {
                     props.deleteuser(props.user.id)
                 }}>Delete</Button>
-            </div>
-        )
-   
+        </div>
+    )
+
 }
 
 export default DelButton;

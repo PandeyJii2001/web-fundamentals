@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Input } from "antd";
+import { Form, Button, Input, DatePicker, Space } from "antd";
 
 function AddInTodo(props) {
 
@@ -7,7 +7,7 @@ function AddInTodo(props) {
     const [projectStatus, setProjectStatus] = useState('');
     const [projectOwner, setProjectOwner] = useState('');
     const [dueDate, setDueDate] = useState('');
-    
+
     const enterprojectTitle = (e) => {
         let val = e.target.value;
         setProjectTitle(val);
@@ -25,14 +25,14 @@ function AddInTodo(props) {
         setProjectOwner(val);
     }
 
-    const enterdueDate = (e) => {
-        let val = e.target.value;
-        setDueDate(val);
-    }
+    const dateFormatList = ['DD-MM-YYYY', 'DD-MM-YY'];
 
-   
+    const enterdueDate = (date, dateString) => {
+        setDueDate(dateString);
+    };
 
-    let Id=0;
+
+    let Id = 0;
     return (
         <div className='formformate'>
             <Form>
@@ -51,16 +51,19 @@ function AddInTodo(props) {
                 <div className='formitem'>
                     <span className='formitemname'>Project Owner :</span>
                     <Input className='forminput' style={{ width: '100%' }} placeholder="Enter project owner name"
-                        value={projectOwner} name="name" type="number" onChange={enterprojectOwner} />
+                        value={projectOwner} name="name" onChange={enterprojectOwner} />
                 </div>
 
                 <div className='formitem'>
                     <span className='formitemname'>Due Date :</span>
-                    <Input className='forminput' name="name" value={dueDate} placeholder="Enter due date"
-                        type="email" onChange={enterdueDate} />
+                    <Space direction="vertical" >
+                        <DatePicker className='forminput' format={dateFormatList}
+                            placeholder="Pick-up due date" onChange={enterdueDate}
+                        />
+                    </Space>
                 </div>
-                
-                
+
+
                 <div className='formitem'>
                     <Button className='Adduserbtn'
                         onClick={() => {
@@ -69,10 +72,10 @@ function AddInTodo(props) {
                                 projectStatus: projectStatus,
                                 projectOwner: projectOwner,
                                 dueDate: dueDate,
-                                 id: Id+1
+                                id: Id + 1
                             }
                             if (projectdetails.projectTitle === '' || projectdetails.projectStatus === '' ||
-                            projectdetails.projectOwner === '' || projectdetails.dueDate === '' ) {
+                                projectdetails.projectOwner === '' || projectdetails.dueDate === '') {
                                 alert("Please fill all the required detail")
                             }
                             else {
@@ -82,7 +85,7 @@ function AddInTodo(props) {
                                 setProjectStatus('');
                                 setProjectOwner('');
                                 setDueDate('');
-                                
+
                             }
                         }}>Add</Button>
 

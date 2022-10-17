@@ -1,21 +1,15 @@
-// import React from 'react';
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-
-// import UserApi from './UserApi';
-
-
-
 
 import React, { useEffect, useState } from 'react';
 import axois from 'axios';
+import axios from 'axios';
 
 import AddButton from './Component/AddButton';
 import DelButton from './Component/DelButton';
 import EditButton from './Component/EditButton';
 import User from './Component/User';
+
 import { Button } from 'antd';
-import axios from 'axios';
+
 
 function UserApi() {
 
@@ -53,17 +47,17 @@ function UserApi() {
     // let newCounter = counter + 1;
     // setCounter(newCounter);
     console.log(user);//
-   
 
-     axois.post("/user", user)
-       .then((json) => {
+
+    axois.post("/user", user)
+      .then((json) => {
         //axios.get('/user').then((data) =>{console.log(data.json())});
-        Showusers ();
-         })
-         .catch((error) =>{
-          console.log("this is error " + error)
-         });
-        
+        Showusers();
+      })
+      .catch((error) => {
+        console.log("this is error " + error)
+      });
+
     //Showusers ();
   }
 
@@ -76,16 +70,16 @@ function UserApi() {
     // //it's written just because of output the all users after deleting;
     // let newCounter = counter + 1;
     // setCounter(newCounter);
-    
+
 
     axios.delete(`/user/${key}`)
-    .then((json) => {
+      .then((json) => {
 
-      Showusers ();
-       })
-       .catch((error) =>{
+        Showusers();
+      })
+      .catch((error) => {
         console.log("this is error " + error)
-       });
+      });
 
     //Showusers ();
   }
@@ -99,17 +93,17 @@ function UserApi() {
     // let newCounter = counter + 1;
     // setCounter(newCounter);
 
-     
-    axios.put(`/user/${key}`, updateuser)
-        .then((json) => {
-          
-          Showusers ();
-           })
-           .catch((error) =>{
-            console.log("this is error " + error)
-           });
 
-         //Showusers();  
+    axios.put(`/user/${key}`, updateuser)
+      .then((json) => {
+
+        Showusers();
+      })
+      .catch((error) => {
+        console.log("this is error " + error)
+      });
+
+    //Showusers();  
   }
 
   const hideit = () => {
@@ -121,7 +115,7 @@ function UserApi() {
       <>
         <AddButton Adduser={adduser}></AddButton>
         <div className='hideit'>
-        <Button className='hideitbtn' onClick={hideit}>Cancel</Button>
+          <Button className='hideitbtn' onClick={hideit}>Cancel</Button>
         </div>
       </>)
   }
@@ -136,26 +130,26 @@ function UserApi() {
       </div>
       <div className='alluser'>
         <div className='userallinfo'>
-            <div className='userinfo'>Name</div>
-            <div className='userinfo'>Phone no.</div>
-            <div className='userinfo'>Email</div>
-            <div className='userinfosmall'>Blood Group</div>
-            <div className='userinfosmall'>Age</div>
-            <div className='userinfosmall'>Weight</div>
-            <div className='userinfosmall'>Operations</div>
+          <div className='userinfo'>Name</div>
+          <div className='userinfo'>Phone no.</div>
+          <div className='userinfo'>Email</div>
+          <div className='userinfosmall'>Blood Group</div>
+          <div className='userinfosmall'>Age</div>
+          <div className='userinfosmall'>Weight</div>
+          <div className='userinfosmall'>Operations</div>
         </div>
         {Displayusers.map((USER, index) => {
-        
-        return (
-          <div className='userallinfo'>
-            <User key={index}  user={USER} />
-            <div className='userinfosmall'>
-            <DelButton  user={USER} deleteuser={deleteuser}></DelButton>
-            <EditButton  edituser={edituser} user={USER}></EditButton>
-            </div>
-          </div>)
 
-      })}
+          return (
+            <div className='userallinfo'>
+              <User key={index} user={USER} />
+              <div className='userinfosmall'>
+                <DelButton user={USER} deleteuser={deleteuser}></DelButton>
+                <EditButton edituser={edituser} user={USER}></EditButton>
+              </div>
+            </div>)
+
+        })}
       </div>
 
     </div>
