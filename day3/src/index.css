@@ -1,0 +1,192 @@
+@import 'antd/dist/antd.css';
+
+
+.navbar{
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  background-color: green;
+   display: flex;
+   justify-content: center;
+}
+
+.showitbtn{
+  font-size: 25px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: pink;
+  height: 45px;
+  color: black;
+  border-radius: 15px;
+  border: none;
+}
+
+.showform{
+  background-color: rgb(211, 240, 240);
+  /* border: 1px solid black; */
+  margin: 10px;
+  border-radius: 25px;
+ /* position: fixed;
+ height: 100%;
+ width: 100%; 
+ z-index : 2; */
+
+}
+
+.formformate{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+ 
+}
+
+.hideit{
+  display: flex;
+  justify-content: center;
+
+}
+
+.hideitbtn{
+  font-size: 20px;
+  padding: 5px 30px;
+  margin-bottom: 20px;
+  font-style: italic;
+  background-color: red;
+  height: 45px;
+  color: black;
+  border-radius: 15px;
+  border: none;
+}
+
+.formitem{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+    width: 500px;
+}
+
+
+.formitemname{
+  font-size: 25px;
+  padding: 10px;
+}
+
+.forminput{
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 15px;
+  border: none;
+}
+
+.Adduserbtn{
+  font-size: 20px;
+  padding: 5px 30px;
+  font-style: italic;
+  background-color: rgb(0, 255, 51);
+  height: 45px;
+  color: black;
+  border-radius: 15px;
+  border: none;
+}
+
+.alluser{
+  /* border: 1px solid red; */
+  padding: 20px;
+}
+
+.userallinfo{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  /* border: 1px solid green; */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 
+}
+
+.userinfo{
+  font-size: 25px;
+  /* border: 1px solid blue; */
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-all;
+}
+
+.userinfosmall{
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  margin: 5px 20px;
+  /* border: 1px solid blue; */
+  width: 100px;
+}
+
+
+.useerinfo1btn{
+  font-size: 20px;
+  padding: 5px 30px;
+  margin:10px 10px;
+  margin-bottom: 20px;
+  font-style: italic;
+  background-color: rgb(0, 30, 255);
+  height: 45px;
+  color: black;
+  border-radius: 15px;
+  border: none;
+}
+
+.useerinfo1btndelete{
+  background-color: red;
+}
+
+.showuseredit{
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+
+  background-color: rgb(227, 236, 233);
+  /* border: 1px solid red; */
+  z-index: 2;
+}
+
+
+.formitemedit{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  border-radius: 10px;
+  
+}
+.userinfocolor{
+  font-size: 25px;
+  /* border: 1px solid blue; */
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-all;
+  color: blue;
+}
+
+.userinfodueDate{
+  font-size: 25px;
+  /* border: 1px solid blue; */
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-all;
+  color: red;
+}
+
+
